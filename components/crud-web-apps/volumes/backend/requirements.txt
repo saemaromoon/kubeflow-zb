@@ -1,1 +1,3 @@
 gunicorn
+awscli
+s3fs
