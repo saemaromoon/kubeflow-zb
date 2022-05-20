@@ -5,7 +5,7 @@ resources:
 - virtual-service.yaml
 namespace: kubeflow
 commonLabels:
-  app: volumes-web-app
-  kustomize.component: volumes-web-app
+  app: models-web-app
+  kustomize.component: models-web-app
 configurations:
 - params.yaml

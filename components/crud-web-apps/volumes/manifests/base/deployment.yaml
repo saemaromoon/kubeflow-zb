@@ -10,8 +10,8 @@ spec:
         sidecar.istio.io/inject: "false"
     spec:
       containers:
-      - name: volumes-web-app
-        image: public.ecr.aws/j1r0q0g6/notebooks/volumes-web-app
+      - name: models-web-app
+        image: 768556645518.dkr.ecr.ap-northeast-1.amazonaws.com/data-kubeflow:model-v0.0.1
         ports:
         - containerPort: 5000
         env:

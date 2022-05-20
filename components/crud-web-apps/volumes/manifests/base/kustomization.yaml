@@ -6,15 +6,15 @@ resources:
 - deployment.yaml
 - service-account.yaml
 - service.yaml
-namePrefix: volumes-web-app-
+namePrefix: models-web-app-
 namespace: kubeflow
 commonLabels:
-  app: volumes-web-app
-  kustomize.component: volumes-web-app
+  app: models-web-app
+  kustomize.component: models-web-app
 images:
-- name: public.ecr.aws/j1r0q0g6/notebooks/volumes-web-app
-  newName: public.ecr.aws/j1r0q0g6/notebooks/volumes-web-app
-  newTag: v1.5.0
+- name: 768556645518.dkr.ecr.ap-northeast-1.amazonaws.com/data-kubeflow:model-v0.0.1
+  newName: 768556645518.dkr.ecr.ap-northeast-1.amazonaws.com/data-kubeflow
+  newTag: model-v0.0.1
 # We need the name to be unique without the suffix because the original name is what
 # gets used with patches
 configMapGenerator:
