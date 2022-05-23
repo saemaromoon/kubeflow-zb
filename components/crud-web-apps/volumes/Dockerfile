@@ -62,6 +62,8 @@ RUN npm install -g @angular/cli@12
 COPY --from=frontend-kubeflow-lib /src/dist/kubeflow/ ./node_modules/kubeflow/
 #COPY ./common/frontend/kubeflow-common-lib/dist/kubeflow/ ./node_modules/kubeflow/
 
+ARG DISABLE_CACHE
+
 COPY ./volumes/frontend/ .
 
 RUN npm run build -- --output-path=./dist/default --configuration=production

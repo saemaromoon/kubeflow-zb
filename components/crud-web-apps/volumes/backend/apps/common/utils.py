@@ -32,6 +32,8 @@ def parse_model(model):
     name = model.get('name').rsplit('/', 1)[1]
     if model.get('type') == 'directory':
         name = name + '/'
+    if model.get('type') == 'file' and name == '':
+        name = '/'
     # print(name, model.get('type'), model.get('type') == 'directory')
 
     parsed_model = {
