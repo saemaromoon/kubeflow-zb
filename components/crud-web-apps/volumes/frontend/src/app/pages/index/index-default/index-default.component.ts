@@ -29,7 +29,7 @@ export class IndexDefaultComponent implements OnInit {
 	public env = environment;
 	public poller: ExponentialBackoff;
 
-	public currLocation = 'models';
+	public currLocation = 'bW9kZWxz';
 	public subs = new Subscription();
 
 	public config = defaultConfig;
@@ -111,7 +111,9 @@ export class IndexDefaultComponent implements OnInit {
 	}
 	public moveToClicked(model: PVCProcessedObject) {
 		var newloc = model.class.split('s3://zigbang-mlops/')[1];
-		newloc = newloc.replace("/", "%");
+		// newloc = newloc.replace("/", "%");
+		// newloc = encodeURIComponent(newloc)
+		newloc = btoa(newloc);
 		this.currLocation = newloc
 		console.log(this.currLocation)
 		this.backend.getModels(this.currLocation).subscribe(pvcs => {

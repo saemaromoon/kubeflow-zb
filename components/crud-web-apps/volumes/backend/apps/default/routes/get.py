@@ -1,4 +1,5 @@
 from ast import parse
+import base64
 from kubeflow.kubeflow.crud_backend import api, logging
 
 from ...common import utils
@@ -21,9 +22,12 @@ def get_pvcs(namespace):
 def get_models(currlocation):
     print("============================")
     print("baaa!!!!", currlocation)
+    currlocation_bytes = base64.b64decode(currlocation)
+    decoded_location = currlocation_bytes .decode('ascii')
+    print("baaa!!!!", decoded_location)
     print("============================")
     fs = s3fs.S3FileSystem()
-    items = fs.ls('s3://zigbang-mlops/' + currlocation.replace('%', '/'),
+    items = fs.ls('s3://zigbang-mlops/' + decoded_location,
                   refresh=True, detail=True)
 
     content = [utils.parse_model(item) for item in items]
