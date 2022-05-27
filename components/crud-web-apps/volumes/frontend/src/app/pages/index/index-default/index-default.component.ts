@@ -42,6 +42,7 @@ export class IndexDefaultComponent implements OnInit {
 			text: `Upload Model`,
 			icon: 'add',
 			stroked: true,
+			disabled: true,
 			fn: () => {
 				this.newResourceClicked();
 			},
